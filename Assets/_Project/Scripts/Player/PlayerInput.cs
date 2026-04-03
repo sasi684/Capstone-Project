@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
-
     private float _horizontalMovement;
     public float HorizontalMovement { get { return _horizontalMovement; } }
 
@@ -22,5 +21,4 @@ public class PlayerInput : MonoBehaviour
         _isSprinting = Input.GetKey(KeyCode.LeftShift);
         _isJumping = Input.GetKeyDown(KeyCode.Space);
     }
-
 }

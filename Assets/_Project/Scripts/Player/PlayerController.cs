@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
 
     private PlayerInput _input;
     private CharacterController _controller;
+    private Camera _camera;
 
     private Vector3 _moveDirection;
     private float _verticalVelocity;
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour
     {
         _input = GetComponent<PlayerInput>();
         _controller = GetComponent<CharacterController>();
+        _camera = Camera.main;
     }
 
     private void Update()
@@ -60,8 +62,8 @@ public class PlayerController : MonoBehaviour
     private void CalculateMovementSpeed()
     {
         if (_input.IsSprinting)
-            _moveDirection = new Vector3(_input.HorizontalMovement, 0f, _input.VerticalMovement).normalized * _sprintSpeedMultiplier;
+            _moveDirection = (_camera.transform.forward * _input.VerticalMovement + _camera.transform.right * _input.HorizontalMovement) * _sprintSpeedMultiplier;
         else
-            _moveDirection = new Vector3(_input.HorizontalMovement, 0f, _input.VerticalMovement).normalized;
+            _moveDirection = _camera.transform.forward * _input.VerticalMovement + _camera.transform.right * _input.HorizontalMovement;
     }
 }
