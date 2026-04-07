@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
+    #region Player Movement
     private float _horizontalMovement;
     public float HorizontalMovement { get { return _horizontalMovement; } }
 
@@ -13,6 +14,10 @@ public class PlayerInput : MonoBehaviour
 
     private bool _isJumping;
     public bool IsJumping { get { return _isJumping; } }
+    #endregion
+
+    private bool _isPausing;
+    public bool IsPausing { get { return _isPausing; } }
 
     private void Update()
     {
@@ -20,5 +25,7 @@ public class PlayerInput : MonoBehaviour
         _verticalMovement = Input.GetAxisRaw("Vertical");
         _isSprinting = Input.GetKey(KeyCode.LeftShift);
         _isJumping = Input.GetKeyDown(KeyCode.Space);
+
+        _isPausing = Input.GetKeyDown(KeyCode.Escape);
     }
 }
