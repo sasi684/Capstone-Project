@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -12,12 +13,18 @@ public class PlayerController : MonoBehaviour
     [Tooltip("Determines the max height the player can reach jumping")]
     [SerializeField] private float _jumpHeight = 1.5f;
 
+    [Header("Interactions Settings")]
+    [Tooltip("Determines the max distance the player can reach to interact with objects")]
+    [SerializeField] private float _maxInteractDistance = 3f;
+
     private PlayerInput _input;
     private CharacterController _controller;
     private Camera _camera;
 
     private Vector3 _moveDirection;
     private float _verticalVelocity;
+
+    public event Action<bool> OnLookInteractable;
 
     private void Awake()
     {
@@ -29,6 +36,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         Movement();
+        Interaction();
     }
 
     private void Movement()
@@ -65,5 +73,26 @@ public class PlayerController : MonoBehaviour
             _moveDirection = (_camera.transform.forward * _input.VerticalMovement + _camera.transform.right * _input.HorizontalMovement) * _sprintSpeedMultiplier;
         else
             _moveDirection = _camera.transform.forward * _input.VerticalMovement + _camera.transform.right * _input.HorizontalMovement;
+    }
+
+    private void Interaction()
+    {
+        if (Physics.Raycast(_camera.transform.position, _camera.transform.forward, out RaycastHit hit, _maxInteractDistance))
+        {
+            if(hit.collider.TryGetComponent(out IInteractable interactable))
+            {
+                OnLookInteractable?.Invoke(true);
+                if(_input.IsInteracting)
+                    interactable.Interact();
+            }
+            else
+            {
+                OnLookInteractable?.Invoke(false);
+            }
+        }
+        else
+        {
+            OnLookInteractable?.Invoke(false);
+        }
     }
 }

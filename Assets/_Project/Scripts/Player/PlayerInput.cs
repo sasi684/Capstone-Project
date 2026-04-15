@@ -19,6 +19,9 @@ public class PlayerInput : MonoBehaviour
     private bool _isPausing;
     public bool IsPausing { get { return _isPausing; } }
 
+    private bool _isInteracting;
+    public bool IsInteracting { get { return _isInteracting; } }
+
     private void Update()
     {
         _horizontalMovement = Input.GetAxisRaw("Horizontal");
@@ -27,5 +30,7 @@ public class PlayerInput : MonoBehaviour
         _isJumping = Input.GetKeyDown(KeyCode.Space);
 
         _isPausing = Input.GetKeyDown(KeyCode.Escape);
+
+        _isInteracting = Input.GetKeyDown(KeyCode.F);
     }
 }
