@@ -6,8 +6,20 @@ public class Door : MonoBehaviour, IInteractable
     [Tooltip("If true, the door cannot be open")]
     [SerializeField] private bool _isLocked;
 
-    public Action<bool> OnInteract;
+    public event Action<bool> OnInteract;
     private bool _isOpen;
+
+    private MeshCollider[] _colliders;
+
+    private void Awake()
+    {
+        _colliders = GetComponentsInChildren<MeshCollider>();
+    }
+
+    private void Start()
+    {
+        OnInteract += EnableDisableCollider;
+    }
 
     public void Interact()
     {
@@ -15,6 +27,14 @@ public class Door : MonoBehaviour, IInteractable
         {
             _isOpen = !_isOpen;
             OnInteract?.Invoke(_isOpen);
+        }
+    }
+
+    private void EnableDisableCollider(bool isOpen)
+    {
+        foreach (var collider in _colliders)
+        {
+            collider.enabled = !isOpen;
         }
     }
 }
