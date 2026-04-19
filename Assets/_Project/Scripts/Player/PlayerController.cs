@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     [Header("Interactions Settings")]
     [Tooltip("Determines the max distance the player can reach to interact with objects")]
     [SerializeField] private float _maxInteractDistance = 3f;
+    [Tooltip("The Hand Lamp game object to enable/disable.")]
+    [SerializeField] private GameObject _handLamp;
 
     private PlayerInput _input;
     private CharacterController _controller;
@@ -25,6 +27,7 @@ public class PlayerController : MonoBehaviour
     private float _verticalVelocity;
 
     public event Action<bool> OnLookInteractable;
+    public event Action<bool> OnHandLampEquip;
 
     private void Awake()
     {
@@ -37,6 +40,7 @@ public class PlayerController : MonoBehaviour
     {
         Movement();
         Interaction();
+        EquipHandLamp();
     }
 
     private void Movement()
@@ -93,6 +97,15 @@ public class PlayerController : MonoBehaviour
         else
         {
             OnLookInteractable?.Invoke(false);
+        }
+    }
+
+    private void EquipHandLamp()
+    {
+        if (_input.IsEquippingLamp)
+        {
+            _handLamp.SetActive(!_handLamp.activeSelf);
+            OnHandLampEquip?.Invoke(_handLamp.activeSelf);
         }
     }
 }

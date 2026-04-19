@@ -22,6 +22,9 @@ public class PlayerInput : MonoBehaviour
     private bool _isInteracting;
     public bool IsInteracting { get { return _isInteracting; } }
 
+    private bool _isEquippingLamp;
+    public bool IsEquippingLamp { get { return _isEquippingLamp; } }
+
     private void Update()
     {
         _horizontalMovement = Input.GetAxisRaw("Horizontal");
@@ -32,5 +35,7 @@ public class PlayerInput : MonoBehaviour
         _isPausing = Input.GetKeyDown(KeyCode.Escape);
 
         _isInteracting = Input.GetKeyDown(KeyCode.F);
+
+        _isEquippingLamp = Input.GetKeyDown(KeyCode.E);
     }
 }
