@@ -37,4 +37,28 @@ public class Door : MonoBehaviour, IInteractable
             collider.enabled = !isOpen;
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            if (!_isLocked && !_isOpen)
+            {
+                _isOpen = true;
+                OnInteract?.Invoke(_isOpen);
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            if (!_isLocked && _isOpen)
+            {
+                _isOpen = false;
+                OnInteract?.Invoke(_isOpen);
+            }
+        }
+    }
 }
