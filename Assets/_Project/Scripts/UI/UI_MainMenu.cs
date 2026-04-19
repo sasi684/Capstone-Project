@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class UI_MainMenu : MonoBehaviour
 {
+    [SerializeField] private GameObject _gameOptionsPanel;
+
     public void OnClickPlayGame()
     {
         SceneManager.LoadScene("DEMO");
@@ -16,7 +18,7 @@ public class UI_MainMenu : MonoBehaviour
 
     public void OnClickGameOptions()
     {
-        // TODO: creare pannello delle opzioni e aprirlo/chiuderlo
+        _gameOptionsPanel.SetActive(true);
     }
 
     public void OnClickExitGame()

@@ -34,8 +34,8 @@ public class PlayerInput : MonoBehaviour
 
         _isPausing = Input.GetKeyDown(KeyCode.Escape);
 
-        _isInteracting = Input.GetKeyDown(KeyCode.F);
+        _isInteracting = Input.GetMouseButtonDown(0);
 
-        _isEquippingLamp = Input.GetKeyDown(KeyCode.E);
+        _isEquippingLamp = Input.GetKeyDown(KeyCode.F);
     }
 }
