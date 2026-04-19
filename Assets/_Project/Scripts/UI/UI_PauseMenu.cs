@@ -1,9 +1,10 @@
-using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UI_PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameObject _pauseMenuPanel;
+    [SerializeField] private GameObject _gameOptionsPanel;
 
     private PauseMenuController _pauseController;
 
@@ -17,15 +18,16 @@ public class UI_PauseMenu : MonoBehaviour
     {
         if (isPaused)
         {
-            Hide();
+            HidePauseMenu();
+            HideGameOptions();
         }
         else
         {
-            Show();
+            ShowPauseMenu();
         }
     }
 
-    public void Show()
+    public void ShowPauseMenu()
     {
         _pauseMenuPanel.SetActive(true);
 
@@ -36,7 +38,7 @@ public class UI_PauseMenu : MonoBehaviour
         _pauseController.IsPaused = true;
     }
 
-    public void Hide()
+    public void HidePauseMenu()
     {
         _pauseMenuPanel.SetActive(false);
 
@@ -47,6 +49,11 @@ public class UI_PauseMenu : MonoBehaviour
         _pauseController.IsPaused = false;
     }
 
+    private void HideGameOptions()
+    {
+        _gameOptionsPanel.SetActive(false);
+    }
+
     public void OnClickExitGame()
     {
         Application.Quit();
@@ -54,11 +61,11 @@ public class UI_PauseMenu : MonoBehaviour
 
     public void OnClickBackToMenu()
     {
-        //TODO: da aggiungere logica per tornare alla scena del menù
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void OnClickGameOptions()
     {
-        //TODO: da aggiungere pannello delle opzioni
+        _gameOptionsPanel.SetActive(true);
     }
 }
