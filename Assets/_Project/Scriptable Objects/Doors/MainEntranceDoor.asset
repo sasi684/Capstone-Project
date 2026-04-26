@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc7790739d007cb4889cad07b5994310, type: 3}
   m_Name: MainEntranceDoor
   m_EditorClassIdentifier: 
-  DoorName: Main Entrance
+  DoorName: Main Entrance Door

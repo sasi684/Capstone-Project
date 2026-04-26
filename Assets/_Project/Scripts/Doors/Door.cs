@@ -30,6 +30,14 @@ public class Door : MonoBehaviour, IInteractable
             _isOpen = !_isOpen;
             OnInteract?.Invoke(_isOpen);
         }
+        else
+        {
+            if (GameState.Instance.UnlockDoor(_door))
+            {
+                _isOpen = !_isOpen;
+                OnInteract?.Invoke(_isOpen);
+            }
+        }
     }
 
     private void EnableDisableCollider(bool isOpen)
