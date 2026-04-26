@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8722388347545319294}
   - component: {fileID: 2846027638041104762}
   - component: {fileID: 5393523477929287972}
+  - component: {fileID: 2812126079456720371}
   m_Layer: 0
   m_Name: BathroomVanity01
   m_TagString: Untagged
@@ -84,6 +85,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2812126079456720371
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27580229643762345}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.007845606, y: 0.004611193, z: 0.007989272}
+  m_Center: {x: 0.0000000016298145, y: -3.5451417e-10, z: 0.003994636}
 --- !u!1 &3633442772696296005
 GameObject:
   m_ObjectHideFlags: 0
