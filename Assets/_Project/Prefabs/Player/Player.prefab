@@ -1245,7 +1245,7 @@ MonoBehaviour:
   _moveSpeed: 3.5
   _sprintSpeedMultiplier: 1.5
   _gravity: -9.81
-  _jumpHeight: 0.5
+  _jumpHeight: 0
   _maxInteractDistance: 3
   _handLamp: {fileID: 5128656471044133690}
 --- !u!114 &2117748665430450610

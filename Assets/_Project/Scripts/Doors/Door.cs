@@ -3,8 +3,10 @@ using UnityEngine;
 
 public class Door : MonoBehaviour, IInteractable
 {
-    [Tooltip("If true, the door cannot be open")]
+    [Tooltip("If true, the door cannot be open.")]
     [SerializeField] private bool _isLocked;
+    [Tooltip("The Door Scriptable Object used to determine wich key opens the door if locked.")]
+    [SerializeField] private SO_Door _door;
 
     public event Action<bool> OnInteract;
     private bool _isOpen;
