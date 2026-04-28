@@ -95,6 +95,9 @@ GameObject:
   - component: {fileID: 2404001545907836140}
   - component: {fileID: 7978445818536672593}
   - component: {fileID: 7534443103485995433}
+  - component: {fileID: 7701456378046517468}
+  - component: {fileID: 6166204251854834233}
+  - component: {fileID: 5399022910301823653}
   m_Layer: 0
   m_Name: Closet23
   m_TagString: Untagged
@@ -190,6 +193,51 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.013548082, y: 0.008935705, z: 0.02543993}
   m_Center: {x: 0, y: -0.000021568501, z: 0.012719965}
+--- !u!95 &7701456378046517468
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8751778068931033903}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 02f76207269be854096e30be0ad0f83a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6166204251854834233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8751778068931033903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dfdab57bef036f4a94a1c207077abd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5399022910301823653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8751778068931033903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9132362b1ce350a42813eb8390aa15aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9179243278137352759
 GameObject:
   m_ObjectHideFlags: 0
