@@ -5,6 +5,7 @@ public class GameState : GenericSingleton<GameState>
     private bool _hasUpperFloorBathroomKey;
     private bool _hasMainEntranceKey;
     private bool _hasFirstRoomKey;
+    private bool _hasMonsterRoomKey;
 
     public void CollectKey(SO_Key key)
     {
@@ -18,6 +19,9 @@ public class GameState : GenericSingleton<GameState>
                 break;
             case "First Room Key":
                 _hasFirstRoomKey = true;
+                break;
+            case "Monster Room Key":
+                _hasMonsterRoomKey = true;
                 break;
             default:
                 Debug.LogWarning("Unknown key picked up.");
@@ -35,6 +39,8 @@ public class GameState : GenericSingleton<GameState>
                 return _hasMainEntranceKey;
             case "First Room Door":
                 return _hasFirstRoomKey;
+            case "Monster Room Door":
+                return _hasMonsterRoomKey;
             default:
                 Debug.LogWarning("Unknown door.");
                 return false;

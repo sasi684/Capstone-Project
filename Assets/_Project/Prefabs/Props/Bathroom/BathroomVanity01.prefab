@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 2846027638041104762}
   - component: {fileID: 5393523477929287972}
   - component: {fileID: 2812126079456720371}
+  - component: {fileID: 8116607806177603051}
+  - component: {fileID: 1181863373968965632}
+  - component: {fileID: 2391351853382059310}
   m_Layer: 0
   m_Name: BathroomVanity01
   m_TagString: Untagged
@@ -106,6 +109,51 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.007845606, y: 0.004611193, z: 0.007989272}
   m_Center: {x: 0.0000000016298145, y: -3.5451417e-10, z: 0.003994636}
+--- !u!95 &8116607806177603051
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27580229643762345}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a7c27083c9696684991b3c00b7c92912, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1181863373968965632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27580229643762345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1795a106e08d6cd4f8ae4643d4696a24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2391351853382059310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27580229643762345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8676e98359fc52748ab100a05064eef5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3633442772696296005
 GameObject:
   m_ObjectHideFlags: 0

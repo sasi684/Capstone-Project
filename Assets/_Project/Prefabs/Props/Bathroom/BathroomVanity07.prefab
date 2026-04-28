@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 3568392589471254329}
   - component: {fileID: 5950656804003240724}
   - component: {fileID: 7260553598512134452}
+  - component: {fileID: 4399535023129293431}
+  - component: {fileID: 8869776159658413033}
+  - component: {fileID: 6530123951514275789}
   m_Layer: 0
   m_Name: BathroomVanity07
   m_TagString: Untagged
@@ -107,6 +110,51 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.007845606, y: 0.004611193, z: 0.007989272}
   m_Center: {x: 0.0000000016298145, y: -3.5451417e-10, z: 0.003994636}
+--- !u!95 &4399535023129293431
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4339618881370910601}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7c108b3114a449443ba6f1dae8cbfb60, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8869776159658413033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4339618881370910601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dfdab57bef036f4a94a1c207077abd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6530123951514275789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4339618881370910601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9132362b1ce350a42813eb8390aa15aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5481399349688711902
 GameObject:
   m_ObjectHideFlags: 0
