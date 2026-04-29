@@ -6,7 +6,7 @@ public class UI_EscapedCaught : MonoBehaviour
     
     public void OnClickMainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        ScreenFader.Instance.StartFadeToOpaque(ChangeSceneToMainMenu);
     }
 
     public void OnClickExitGame()
@@ -14,4 +14,9 @@ public class UI_EscapedCaught : MonoBehaviour
         Application.Quit();
     }
 
+    private void ChangeSceneToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+        ScreenFader.Instance.StartFadeToTransparent();
+    }
 }

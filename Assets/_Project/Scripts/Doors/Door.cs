@@ -48,8 +48,14 @@ public class Door : MonoBehaviour, IInteractable
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
 
-            SceneManager.LoadScene("Escaped");
+            ScreenFader.Instance.StartFadeToOpaque(ChangeSceneToEscaped);
         }
+    }
+
+    private void ChangeSceneToEscaped()
+    {
+        SceneManager.LoadScene("Escaped");
+        ScreenFader.Instance.StartFadeToTransparent();
     }
 
     private void EnableDisableCollider(bool isOpen)

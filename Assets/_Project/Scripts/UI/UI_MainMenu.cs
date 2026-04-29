@@ -7,13 +7,13 @@ public class UI_MainMenu : MonoBehaviour
 
     public void OnClickPlayGame()
     {
-        SceneManager.LoadScene("DEMO");
+        ScreenFader.Instance.StartFadeToOpaque(ChangeSceneToLevel);
     }
 
     public void OnClickLoadGame()
     {
         // TODO: aggiungere logica per caricare lo state dell'ultima partita
-        SceneManager.LoadScene("DEMO");
+        ScreenFader.Instance.StartFadeToOpaque(ChangeSceneToLevel);
     }
 
     public void OnClickGameOptions()
@@ -24,6 +24,12 @@ public class UI_MainMenu : MonoBehaviour
     public void OnClickExitGame()
     {
         Application.Quit();
+    }
+
+    private void ChangeSceneToLevel()
+    {
+        SceneManager.LoadScene("DEMO");
+        ScreenFader.Instance.StartFadeToTransparent();
     }
 
 }

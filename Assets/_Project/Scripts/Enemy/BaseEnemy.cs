@@ -108,8 +108,13 @@ public abstract class BaseEnemy : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
 
-            SceneManager.LoadScene("Caught");
+            ScreenFader.Instance.StartFadeToOpaque(ChangeSceneToCaught);
         }
     }
 
+    private void ChangeSceneToCaught()
+    {
+        SceneManager.LoadScene("Caught");
+        ScreenFader.Instance.StartFadeToTransparent();
+    }
 }
