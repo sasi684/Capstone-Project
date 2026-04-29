@@ -7,7 +7,7 @@ public class ClosetAnimation : MonoBehaviour
 
     private void Awake()
     {
-        _animator = GetComponent<Animator>();
+        _animator = GetComponentInParent<Animator>();
         _closet = GetComponent<Closet>();
     }
 
