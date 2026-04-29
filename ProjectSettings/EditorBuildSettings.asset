@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Project/Scenes/MainMenu.unity
     guid: 5b3a0df6d357c2c488bb31f221c982e1
+  - enabled: 1
+    path: Assets/_Project/Scenes/Escaped.unity
+    guid: 6a925b0da597ddc4eb6f5be8a8fd74ff
+  - enabled: 1
+    path: Assets/_Project/Scenes/Caught.unity
+    guid: b8101c73685f3e34a8b1b84f6815b8f9
   m_configObjects: {}

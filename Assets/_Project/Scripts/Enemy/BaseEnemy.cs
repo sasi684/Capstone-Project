@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public abstract class BaseEnemy : MonoBehaviour
 {
@@ -99,5 +100,16 @@ public abstract class BaseEnemy : MonoBehaviour
     protected abstract void OnEnterIdle();
     protected abstract void OnEnterWalking();
     protected abstract void OnEnterRunning();
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
+            SceneManager.LoadScene("Caught");
+        }
+    }
 
 }

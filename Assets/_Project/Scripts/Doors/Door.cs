@@ -1,10 +1,13 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour, IInteractable
 {
     [Tooltip("If true, the door cannot be open.")]
     [SerializeField] private bool _isLocked;
+    [Tooltip("If toggled, interacting with this door completes the level.")]
+    [SerializeField] private bool _isFinalDoor;
     [Tooltip("The Door Scriptable Object used to determine wich key opens the door if locked.")]
     [SerializeField] private SO_Door _door;
 
@@ -34,9 +37,18 @@ public class Door : MonoBehaviour, IInteractable
         {
             if (GameState.Instance.UnlockDoor(_door))
             {
-                _isOpen = !_isOpen;
-                OnInteract?.Invoke(_isOpen);
+                _isLocked = false;
+                _isOpen = true;
+                OnInteract?.Invoke(true);
             }
+        }
+
+        if (_isFinalDoor && !_isLocked)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
+            SceneManager.LoadScene("Escaped");
         }
     }
 
