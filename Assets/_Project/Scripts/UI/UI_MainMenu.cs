@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class UI_MainMenu : MonoBehaviour
 {
@@ -7,13 +6,13 @@ public class UI_MainMenu : MonoBehaviour
 
     public void OnClickPlayGame()
     {
-        ScreenFader.Instance.StartFadeToOpaque(ChangeSceneToLevel);
+        ScreenFader.Instance.StartFadeToOpaque("DEMO");
     }
 
     public void OnClickLoadGame()
     {
         // TODO: aggiungere logica per caricare lo state dell'ultima partita
-        ScreenFader.Instance.StartFadeToOpaque(ChangeSceneToLevel);
+        ScreenFader.Instance.StartFadeToOpaque("DEMO");
     }
 
     public void OnClickGameOptions()
@@ -24,12 +23,6 @@ public class UI_MainMenu : MonoBehaviour
     public void OnClickExitGame()
     {
         Application.Quit();
-    }
-
-    private void ChangeSceneToLevel()
-    {
-        SceneManager.LoadScene("DEMO");
-        ScreenFader.Instance.StartFadeToTransparent();
     }
 
 }

@@ -61,7 +61,12 @@ public class UI_PauseMenu : MonoBehaviour
 
     public void OnClickBackToMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        HidePauseMenu();
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        ScreenFader.Instance.StartFadeToOpaque("MainMenu");
     }
 
     public void OnClickGameOptions()

@@ -19,7 +19,6 @@ public class PlayerController : MonoBehaviour
     [Tooltip("The Hand Lamp game object to enable/disable.")]
     [SerializeField] private GameObject _handLamp;
 
-    private PlayerInput _input;
     private CharacterController _controller;
     private Camera _camera;
 
@@ -31,7 +30,6 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        _input = GetComponent<PlayerInput>();
         _controller = GetComponent<CharacterController>();
         _camera = Camera.main;
     }
@@ -67,16 +65,16 @@ public class PlayerController : MonoBehaviour
 
     private void Jump(ref float verticalVelocity)
     {
-        if(_input.IsJumping)
+        if(PlayerInput.Instance.IsJumping)
             verticalVelocity = Mathf.Sqrt(_jumpHeight * _gravity * -2);
     }
 
     private void CalculateMovementSpeed()
     {
-        if (_input.IsSprinting)
-            _moveDirection = (_camera.transform.forward * _input.VerticalMovement + _camera.transform.right * _input.HorizontalMovement) * _sprintSpeedMultiplier;
+        if (PlayerInput.Instance.IsSprinting)
+            _moveDirection = (_camera.transform.forward * PlayerInput.Instance.VerticalMovement + _camera.transform.right * PlayerInput.Instance.HorizontalMovement) * _sprintSpeedMultiplier;
         else
-            _moveDirection = _camera.transform.forward * _input.VerticalMovement + _camera.transform.right * _input.HorizontalMovement;
+            _moveDirection = _camera.transform.forward * PlayerInput.Instance.VerticalMovement + _camera.transform.right * PlayerInput.Instance.HorizontalMovement;
     }
 
     private void Interaction()
@@ -86,7 +84,7 @@ public class PlayerController : MonoBehaviour
             if(hit.collider.TryGetComponent(out IInteractable interactable))
             {
                 OnLookInteractable?.Invoke(true);
-                if(_input.IsInteracting)
+                if(PlayerInput.Instance.IsInteracting)
                     interactable.Interact();
             }
             else
@@ -102,7 +100,7 @@ public class PlayerController : MonoBehaviour
 
     private void EquipHandLamp()
     {
-        if (_input.IsEquippingLamp)
+        if (PlayerInput.Instance.IsEquippingLamp)
         {
             _handLamp.SetActive(!_handLamp.activeSelf);
             OnHandLampEquip?.Invoke(_handLamp.activeSelf);
