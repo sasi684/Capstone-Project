@@ -2,7 +2,11 @@ using System.Collections;
 using UnityEngine;
 
 public class ZombieEnemy : BaseEnemy
-{    
+{
+    [Header("Sounds List")]
+    [SerializeField] private AudioClip[] _idleSounds;
+    [SerializeField] private AudioClip[] _followSounds;
+
     private void Start()
     {
         _currentState = EnemyState.Idle;
@@ -17,6 +21,12 @@ public class ZombieEnemy : BaseEnemy
             return;
 
         _waitingCoroutine = StartCoroutine(WaitingCoroutine());
+
+        if (Time.time - _lastIdleSound > _idleSoundUpdateTime)
+        {
+            PlaySound(_idleSounds);
+            _lastIdleSound = Time.time;
+        }
     }
 
     protected override void WalkingUpdate()
@@ -30,6 +40,12 @@ public class ZombieEnemy : BaseEnemy
         if (!_agent.pathPending && _agent.remainingDistance <= _agent.stoppingDistance)
         {
             ChangeState(EnemyState.Idle);
+        }
+
+        if (Time.time - _lastIdleSound > _idleSoundUpdateTime)
+        {
+            PlaySound(_idleSounds);
+            _lastIdleSound = Time.time;
         }
     }
 
@@ -46,6 +62,12 @@ public class ZombieEnemy : BaseEnemy
 
         if (_chasingCoroutine == null)
             _chasingCoroutine = StartCoroutine(ChasingCoroutine());
+
+        if (Time.time - _lastFollowSound > _followSoundUpdateTime)
+        {
+            PlaySound(_followSounds);
+            _lastFollowSound = Time.time;
+        }
     }
 
     protected override void OnExitIdle()
@@ -76,6 +98,9 @@ public class ZombieEnemy : BaseEnemy
             StopCoroutine(_chasingCoroutine);
             _chasingCoroutine = null;
         }
+
+        PlaySound(_idleSounds);
+        _lastIdleSound = Time.time;
     }
 
     protected override void OnEnterWalking()
@@ -86,6 +111,9 @@ public class ZombieEnemy : BaseEnemy
     protected override void OnEnterRunning()
     {
         _agent.speed *= 5;
+
+        PlaySound(_followSounds);
+        _lastFollowSound = Time.time;
     }
 
     private IEnumerator WaitingCoroutine()

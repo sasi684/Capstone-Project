@@ -1,10 +1,10 @@
 using System;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.SceneManagement;
 
 public abstract class BaseEnemy : MonoBehaviour
 {
+    [Header("Technical Parameters")]
     [Tooltip("Determines the time the agent waits before moving to next waypoint.")]
     [SerializeField] protected float _waitTime = 3f;
     [Tooltip("The waypoints where the monster patrols to.")]
@@ -13,6 +13,10 @@ public abstract class BaseEnemy : MonoBehaviour
     [SerializeField] protected float _runToIdleTime = 8f;
     [Tooltip("The refresh rate to update the path while chasing the player.")]
     [SerializeField] protected float _runUpdateTime = 0.3f;
+    [Tooltip("The refresh rate to play a sound in idle or walk state.")]
+    [SerializeField] protected float _idleSoundUpdateTime = 4f;
+    [Tooltip("The refresh rate to play a sound while chasing the player.")]
+    [SerializeField] protected float _followSoundUpdateTime = 3f;
 
     protected NavMeshAgent _agent;
     protected FieldOfView _fieldOfView;
@@ -27,10 +31,15 @@ public abstract class BaseEnemy : MonoBehaviour
     public event Action<EnemyState, EnemyState> OnStateChanged;
     protected EnemyState _currentState;
 
+    protected AudioSource _audioSource;
+    protected float _lastIdleSound;
+    protected float _lastFollowSound;
+
     private void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
         _fieldOfView = GetComponent<FieldOfView>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -110,5 +119,12 @@ public abstract class BaseEnemy : MonoBehaviour
 
             ScreenFader.Instance.StartFadeToOpaque("Caught");
         }
+    }
+
+    protected void PlaySound(AudioClip[] soundsList)
+    {
+        AudioClip clip = soundsList[UnityEngine.Random.Range(0, soundsList.Length)];
+        _audioSource.Stop();
+        _audioSource.PlayOneShot(clip);
     }
 }

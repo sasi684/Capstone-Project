@@ -1,15 +1,23 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : GenericSingleton<AudioManager>
 {
     [Header("Music clips")]
     [SerializeField] private Sound[] _bgms;
+
     [Header("Sound effects")]
     [SerializeField] private Sound[] _sfxs;
+
     [Header("Audio Sources")]
     [SerializeField] private AudioSource _musicSource;
     [SerializeField] private AudioSource _soundSource;
+
+    private void Start()
+    {
+        PlayMusic(SceneManager.GetActiveScene().name);
+    }
 
     public void PlayMusic(string sceneName)
     {

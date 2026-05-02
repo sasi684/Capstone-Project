@@ -2011,6 +2011,7 @@ GameObject:
   - component: {fileID: 2491213665976476940}
   - component: {fileID: 646916515649387235}
   - component: {fileID: 879586798125967111}
+  - component: {fileID: 6091402160508034317}
   m_Layer: 0
   m_Name: Zombie Enemy
   m_TagString: Enemy
@@ -2125,6 +2126,26 @@ MonoBehaviour:
   - {fileID: 0}
   _runToIdleTime: 10
   _runUpdateTime: 0.2
+  _idleSounds:
+  - {fileID: 8300000, guid: e26e3ea4683bee24d9bee3fa4d373cd1, type: 3}
+  - {fileID: 8300000, guid: 999c0cd9ae460e545aec3e5b4a437983, type: 3}
+  - {fileID: 8300000, guid: 17b9a006173bc6744991fd541ec96976, type: 3}
+  - {fileID: 8300000, guid: 7037e68b6cea29d40bc69de263ab93db, type: 3}
+  - {fileID: 8300000, guid: 585ce75d0b8a23a4488d906a386ac634, type: 3}
+  - {fileID: 8300000, guid: 7a7492a3dca675a46a5aa318dfb57b10, type: 3}
+  - {fileID: 8300000, guid: 7a2283c169d83ea4db9cb6b76d43d9b9, type: 3}
+  - {fileID: 8300000, guid: fcfe09d01cda46b459577c4bf6df56dd, type: 3}
+  - {fileID: 8300000, guid: 7698c877de97e544daa03098466845c2, type: 3}
+  - {fileID: 8300000, guid: 2dc3ebf00b8defc4d8c993096886ca72, type: 3}
+  - {fileID: 8300000, guid: 7c8653290d1b1874bbd0cb0d38b26022, type: 3}
+  - {fileID: 8300000, guid: c4fa5b2c64b86434eaf1e176d361f43a, type: 3}
+  - {fileID: 8300000, guid: ac896602220e21d49b61cab7af279abf, type: 3}
+  - {fileID: 8300000, guid: 7c298e0a77d9ae84c9bd29fa074da373, type: 3}
+  - {fileID: 8300000, guid: 8a771c53415ae2a47b9a0e85dc5ab2fe, type: 3}
+  _followSounds:
+  - {fileID: 8300000, guid: f5581d28684a8cf42b16b7916b97af07, type: 3}
+  - {fileID: 8300000, guid: 795eab24fe6073d4ba226a7cbaed019d, type: 3}
+  - {fileID: 8300000, guid: fc8b274e853694d498172466c060a67a, type: 3}
 --- !u!114 &2491213665976476940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2182,6 +2203,103 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!82 &6091402160508034317
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7968066350010307462}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 106672533418712833, guid: c473ef6ef855439438a112bfa01d4862,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &8019618614390359255
 GameObject:
   m_ObjectHideFlags: 0
