@@ -102,8 +102,14 @@ public class PlayerController : MonoBehaviour
     {
         if (PlayerInput.Instance.IsEquippingLamp)
         {
-            _handLamp.SetActive(!_handLamp.activeSelf);
-            OnHandLampEquip?.Invoke(_handLamp.activeSelf);
+            bool lampStatus = _handLamp.activeSelf;
+            _handLamp.SetActive(!lampStatus);
+            OnHandLampEquip?.Invoke(!lampStatus);
+
+            if (lampStatus)
+                AudioManager.Instance.PlaySFX("LanternUnequip");
+            else
+                AudioManager.Instance.PlaySFX("LanternEquip");
         }
     }
 }

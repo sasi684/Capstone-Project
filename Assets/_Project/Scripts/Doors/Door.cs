@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour, IInteractable
 {
@@ -30,16 +29,21 @@ public class Door : MonoBehaviour, IInteractable
     {
         if (!_isLocked)
         {
-            _isOpen = !_isOpen;
-            OnInteract?.Invoke(_isOpen);
+            if (_isOpen)
+                CloseDoor();
+            else
+                OpenDoor();
         }
         else
         {
             if (GameState.Instance.UnlockDoor(_door))
             {
                 _isLocked = false;
-                _isOpen = true;
-                OnInteract?.Invoke(true);
+                AudioManager.Instance.PlaySFX("DoorUnlock");
+            }
+            else
+            {
+                AudioManager.Instance.PlaySFX("DoorLocked");
             }
         }
 
@@ -50,6 +54,20 @@ public class Door : MonoBehaviour, IInteractable
 
             ScreenFader.Instance.StartFadeToOpaque("Escaped");
         }
+    }
+
+    private void OpenDoor()
+    {
+        _isOpen = true;
+        AudioManager.Instance.PlaySFX("WoodenDoorOpen");
+        OnInteract?.Invoke(true);
+    }
+
+    private void CloseDoor()
+    {
+        _isOpen = false;
+        AudioManager.Instance.PlaySFX("WoodenDoorClose");
+        OnInteract?.Invoke(false);
     }
 
     private void EnableDisableCollider(bool isOpen)

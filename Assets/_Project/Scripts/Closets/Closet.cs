@@ -8,7 +8,23 @@ public class Closet : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        _isOpen = !_isOpen;
+        if (_isOpen)
+            CloseCloset();
+        else
+            OpenCloset();
+    }
+
+    private void OpenCloset()
+    {
+        _isOpen = true;
+        AudioManager.Instance.PlaySFX("ClosetOpen");
+        OnInteract?.Invoke(_isOpen);
+    }
+
+    private void CloseCloset()
+    {
+        _isOpen = false;
+        AudioManager.Instance.PlaySFX("ClosetClose");
         OnInteract?.Invoke(_isOpen);
     }
 

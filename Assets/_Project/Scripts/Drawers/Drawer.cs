@@ -8,8 +8,23 @@ public class Drawer : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        _isOpen = !_isOpen;
+        if (_isOpen)
+            CloseDrawer();
+        else
+            OpenDrawer();
+    }
+
+    private void OpenDrawer()
+    {
+        _isOpen = true;
+        AudioManager.Instance.PlaySFX("DrawerOpen");
         OnInteract?.Invoke(_isOpen);
     }
 
+    private void CloseDrawer()
+    {
+        _isOpen = false;
+        AudioManager.Instance.PlaySFX("DrawerClose");
+        OnInteract?.Invoke(_isOpen);
+    }
 }

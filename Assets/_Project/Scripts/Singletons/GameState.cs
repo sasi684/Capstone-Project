@@ -9,6 +9,8 @@ public class GameState : GenericSingleton<GameState>
 
     public void CollectKey(SO_Key key)
     {
+        AudioManager.Instance.PlaySFX("KeyPickup");
+
         switch (key.KeyName)
         {
             case "Upper Floor Bathroom Key":

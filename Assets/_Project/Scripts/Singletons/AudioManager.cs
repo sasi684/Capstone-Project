@@ -1,43 +1,45 @@
+using System;
 using UnityEngine;
 
 public class AudioManager : GenericSingleton<AudioManager>
 {
     [Header("Music clips")]
-    [SerializeField] private AudioClip[] _bgms;
+    [SerializeField] private Sound[] _bgms;
     [Header("Sound effects")]
-    [SerializeField] private AudioClip[] _zombieEnemySounds;
-    [SerializeField] private AudioClip[] _propsSounds;
-
-    private AudioSource _audioSource;
-
-    protected override void Awake()
-    {
-        base.Awake();
-
-        _audioSource = GetComponent<AudioSource>();
-    }
-
-    public AudioClip GetMusicClip(string sceneName)
-    {
-        foreach (var clip in _bgms)
-        {
-            if (clip.name == sceneName + "MusicClip")
-                return clip;
-        }
-
-        Debug.LogWarning($"ERROR: No music found for the scene {sceneName}");
-        return null;
-    }
+    [SerializeField] private Sound[] _sfxs;
+    [Header("Audio Sources")]
+    [SerializeField] private AudioSource _musicSource;
+    [SerializeField] private AudioSource _soundSource;
 
     public void PlayMusic(string sceneName)
     {
-        AudioClip music = AudioManager.Instance.GetMusicClip(sceneName);
+        Sound music = Array.Find(_bgms, x => x.Name == sceneName);
 
         if (music != null)
         {
-            _audioSource.Stop();
-            _audioSource.clip = music;
-            _audioSource.Play();
+            _musicSource.Stop();
+            _musicSource.clip = music.Clip;
+            _musicSource.Play();
+        }
+
+        else
+        {
+            Debug.LogWarning($"ERROR: No music found with name {sceneName}");
+        }
+    }
+
+    public void PlaySFX(string sfx)
+    {
+        Sound sound = Array.Find(_sfxs, x => x.Name == sfx);
+
+        if (sound != null)
+        {
+            _soundSource.PlayOneShot(sound.Clip);
+        }
+
+        else
+        {
+            Debug.LogWarning($"ERROR: No sound found with name {sfx}");
         }
     }
 }
